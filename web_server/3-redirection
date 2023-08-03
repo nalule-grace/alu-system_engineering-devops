@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#configuring nginx server for redirection
+apt-get -y update
+apt-get -y install nginx
+echo "Holberton School" > /var/www/html/index.html
+sed -i '/^\tserver_name.*/a rewrite ^/redirect_me http://www.youtube.com/ permanent;' /etc/nginc/sites-available/default
+service nginx restart
